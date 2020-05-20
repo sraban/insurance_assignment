@@ -1,0 +1,142 @@
+<div class="container mt-3 mx-auto">
+   <h3 class="plan_select">Select Your Plan</h3>
+   <br>
+   <p>* Please fill all details correctly </p>
+   <p>* The insurance is not effective until the proposal is accepted and full premium is received</p>
+   
+   <div class="card mt-10">
+      <div class="card-body">
+         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+         <div class="form-row">
+            <div class="form-group col-3">
+               <label class="required">Salutation </label>
+               <kendo-dropdownlist formControlName="title" [data]="titles" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.title.errors }">
+               </kendo-dropdownlist>
+               <div *ngIf="submitted && f.title.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.title.errors.required">Salutation is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">First Name</label>
+               <input kendoTextBox formControlName="firstName" placeholder="First Name" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.firstName.errors }" />
+               <div *ngIf="submitted && f.firstName.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Last Name</label>
+               <input kendoTextBox formControlName="lastName" placeholder="Last Name" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.lastName.errors }" />
+               <div *ngIf="submitted && f.lastName.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Gender </label>
+               <kendo-dropdownlist formControlName="gender" [data]="genders" placeholder="Gender" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.gender.errors }">
+               </kendo-dropdownlist>
+               <div *ngIf="submitted && f.gender.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.gender.errors.required">Gender is required</div>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-3">
+               <label class="required">DOB</label>
+               <kendo-datepicker class="form-control" formControlName="dob" placeholder="DD-MM-YYYY" format="dd-MM-yyyy" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.dob.errors }"></kendo-datepicker>
+               <div *ngIf="submitted && f.dob.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.dob.errors.required">DOB is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Mobile Number</label>
+               <input kendoTextBox formControlName="mobile" placeholder="Mobile Number" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.mobile.errors }" />
+               <div *ngIf="submitted && f.mobile.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.mobile.errors.required">Mobile No is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">E-mail</label>
+               <input kendoTextBox formControlName="email" placeholder="E-mail" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.email.errors }" />
+               <div *ngIf="submitted && f.email.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Policy start date</label>
+               <kendo-datepicker class="form-control" placeholder="DD-MM-YYYY" formControlName="policy_start_date" format="dd-MM-yyyy" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.policy_start_date.errors }"></kendo-datepicker>
+               <div *ngIf="submitted && f.policy_start_date.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.policy_start_date.errors.required">Plociy Start Date is required</div>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-3">
+               <label class="required">Policy end date</label>
+               <kendo-datepicker class="form-control" formControlName="policy_end_date" placeholder="DD-MM-YYYY" format="dd-MM-yyyy" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.policy_end_date.errors }"></kendo-datepicker>
+               <div *ngIf="submitted && f.policy_end_date.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.policy_end_date.errors.required">Policy End Date is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Select State</label>
+               <kendo-dropdownlist formControlName="state"  placeholder="Select State" [data]="states" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.state.errors }">
+               </kendo-dropdownlist>
+               <div *ngIf="submitted && f.state.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.state.errors.required">State is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Select Plan</label>
+               <kendo-dropdownlist formControlName="plan" [data]="plans" placeholder="Select Plan" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.plan.errors }">
+               </kendo-dropdownlist>
+               <div *ngIf="submitted && f.plan.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.plan.errors.required">Plan is required</div>
+               </div>
+            </div>
+            <div class="form-group col-3">
+               <label class="required">Sum Insured <a href="https://buyuat.bharti-axagi.co.in/group_health/plandetails" target="_blank">See plan details</a></label>
+               <kendo-dropdownlist formControlName="amount_insure" placeholder="Sum Insured" [data]="sum_insured" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.amount_insure.errors }">
+               </kendo-dropdownlist>
+               <div *ngIf="submitted && f.amount_insure.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.amount_insure.errors.required">Sum Insured is required</div>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-3">
+               <label class="required">Premium Inclusive of Tax</label>
+               <input kendoTextBox readonly="true" placeholder="Premium Inclusive of Tax" formControlName="premimum_inclusive_tax" class="form-control" [ngClass]="{ 'ng-invalid ng-touched': submitted && f.premimum_inclusive_tax.errors }" />
+               <div *ngIf="submitted && f.premimum_inclusive_tax.errors" class="k-tooltip-validation">
+                  <div *ngIf="f.premimum_inclusive_tax.errors.required">Premium Inclusive of Tax is required</div>
+               </div>
+            </div>
+         </div>
+         <div class="text-center">
+            <button kendoButton primary="true" class="blue float-right">Proceed</button>
+         </div>
+         </form>
+      </div>
+   </div>
+
+
+   <div style="margin-top: 20px;">
+      <h5 class="clr-brand"> <strong>&nbsp;A - Adult &amp; &nbsp;C - Child</strong></h5>
+      <h4><label class="clr-brand"><span style="color:red">*</span>&nbsp;Mandatory Fields</label></h4>
+      <hr>
+      <h4 class="clr-brand"><strong>Disclaimer</strong></h4>
+      <strong>
+        <footer class="foot">
+           <section style="padding-right: 24px;">
+              <p class="clr-brand">“Bharti AXA General Insurance Company Limited. Address: First Floor, Hosto Centre, No. 43, Millers Road, Vasanth Nagar, Bangalore - 560052.Corporate Office Address: 19th floor, Parinee Crescenzo, ‘G’ block, BandraKurla Complex, Opposite MCA Club, Bandra (E), Mumbai – 400051. IRDAI Registration Number 139. CIN U66030KA2007PLC043362. Product Name: Group Health Assure. Product UIN: BHAHLGP20021V011920.”
+              </p>
+           </section>
+           <section>
+              <p class="clr-brand">“Policy start date can not be before payment date (As per section 64VB in The Insurance Act, 1938). In case of discrepancy, policy start date will be considered as payment date.”  </p>
+           </section>
+        </footer>
+      </strong>
+   </div>
+
+
+</div>

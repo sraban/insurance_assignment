@@ -1,0 +1,35 @@
+.plan_select{
+	color: #003399; 
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.clr-brand {
+	color:#003399;
+}
+
+.foot {
+    color:white !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    font-family: sans-serif;
+}
+
+.required:after {
+	content: " *";
+    color: #e02222;
+    font-size: 12px;
+    padding-left: 2px;
+}
+
+p {
+    color: #003399;
+    font-family: arial, sans-serif;
+    font-weight: 300;
+}
+
+button.blue {
+    color: #FFFFFF;
+    background-color: #3598dc;
+    border-color: #3598dc;
+}
